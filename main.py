@@ -6,7 +6,6 @@ import setup
 
 class Main(object):
     def __init__(self):
-        self.screen = setup.SCREEN
         self.modes_dict = None
         self.now_mode = None
 
@@ -22,7 +21,7 @@ class Main(object):
             self.switch_mode(c.AI_MODE)
         elif self.now_mode.switch == c.PVP_MODE:
             self.switch_mode(c.PVP_MODE)
-        self.now_mode.update(self.screen)
+        self.now_mode.update()
 
     def event_loop(self):
         for event in pg.event.get():
@@ -44,9 +43,11 @@ class Main(object):
 class _Mode(object):
     def __init__(self):
         self.switch = False
+        self.screen = setup.SCREEN
         self.pos = (0, 0)
+        self.font = setup.FONT_DICT
 
-    def update(self, surface):
+    def update(self):
         pass
 
     def startup(self):

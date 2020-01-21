@@ -12,12 +12,11 @@ AI_MODE = "-单人模式-"
 PVP_MODE = "-双人模式-"
 MENU_MODE = 'main menu'
 
-# color
-# BG_COLOR = Color(205, 198, 115)
-#CAPTION_COLOR = Color((255, 217, 0))
-BLACK = Color('black')
-WHITE = Color('white')
+BLACK_CHESS = "黑子"
+WHITE_CHESS = "白子"
 
+WHITE_WIN = "白方获胜！"
+BLACK_WIN = "黑方获胜！"
 
 # font
 FONT_DIR = r".\fonts\menu.ttf"

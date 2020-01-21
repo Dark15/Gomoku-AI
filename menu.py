@@ -8,19 +8,11 @@ from pygame import freetype
 class Menu(main._Mode):
     def __init__(self):
         super().__init__()
-        self.background = None
-        self.caption_font = None
-        self.option_font = None
-        # self.option = None
-        self.font = setup.FONT_DICT
-
-    def startup(self):
-        self.setup_background()
-
-    def setup_background(self):
-        self.background = setup.bg_img
+        self.background = setup.BG_IMG
         self.caption_font = setup.FONT
         self.option_font = setup.FONT
+        # self.option = None
+
 
     def get_event(self, event):
         if event.type == pg.MOUSEBUTTONDOWN:
@@ -35,18 +27,18 @@ class Menu(main._Mode):
             return c.PVP_MODE
         return False
 
-    def update(self, surface):
-        surface.blit(setup.bg_img, (0, 0))
+    def update(self):
+        self.screen.blit(setup.BG_IMG, (0, 0))
         if self.check_pos() == c.AI_MODE:
-            surface.blit(setup.cursor_img, (95, 220))
-            surface.blit(setup.cursor_img, (348, 220))
+            self.screen.blit(setup.CURSOR_IMG, (95, 220))
+            self.screen.blit(setup.CURSOR_IMG, (348, 220))
         elif self.check_pos() == c.PVP_MODE:
-            surface.blit(setup.cursor_img, (95, 290))
-            surface.blit(setup.cursor_img, (348, 290))
+            self.screen.blit(setup.CURSOR_IMG, (95, 290))
+            self.screen.blit(setup.CURSOR_IMG, (348, 290))
         else:
             self.font["OPTION1"] = setup.FONT.render(c.AI_MODE, fgcolor=(0, 0, 0), size=40)
             self.font["OPTION2"] = setup.FONT.render(c.PVP_MODE, fgcolor=(0, 0, 0), size=40)
-        surface.blits(blit_sequence=((self.font['CAPTION'][0], (100, 60)), 
+        self.screen.blits(blit_sequence=((self.font['CAPTION'][0], (100, 60)),
                                      (self.font['OPTION1'][0], (140, 220)), 
                                      (self.font['OPTION2'][0], (140, 290))))
         # surface.bilts(...)
