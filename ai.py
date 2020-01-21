@@ -1,19 +1,22 @@
 import main
+import setup
 import constants as c
-import numpy as np
+import pygame as pg
 
-class PvpMode(main._Mode):
+
+class AiMode(main._Mode):
     def __init__(self):
         super().__init__()
-        self.now_play = c.BLACK
 
     def startup(self):
         pass
 
-    def checkerboard(self):
+    def update(self, surface):
         pass
 
-    def init
+    def get_event(self, event):
+        pass
+
 
 
 

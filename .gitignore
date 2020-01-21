@@ -3,3 +3,7 @@ venv
 fonts
 __pycache__
 test
+.idea
+images
+.vs
+.vscode

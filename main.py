@@ -44,7 +44,7 @@ class Main(object):
 class _Mode(object):
     def __init__(self):
         self.switch = False
-        self.pos = None
+        self.pos = (0, 0)
 
     def update(self, surface):
         pass
@@ -54,3 +54,4 @@ class _Mode(object):
 
     def get_event(self, event):
         pass
+
